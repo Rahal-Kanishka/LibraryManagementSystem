@@ -1,0 +1,57 @@
+<p>
+  Books
+</p>
+<mat-divider></mat-divider>
+<mat-grid-list cols="6" rowHeight="1:2">
+  <mat-grid-tile *ngFor="let book of books">
+    <mat-card class="item-card">
+      <mat-card-header>
+        <mat-card-title>{{book.title}}</mat-card-title>
+        <mat-card-subtitle> Authors: {{book.authors}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image *ngIf="book.availability == true"
+           src="http://www.aavictoria.org.au/wp-content/uploads/2018/05/green-tick.jpg"
+           alt="Photo of a availability">
+      <img mat-card-image *ngIf="book.availability == false"
+           src="https://previews.123rf.com/images/nerthuz/nerthuz1804/nerthuz180400209/100139212-wrong-cross-symbol-isolated.jpg"
+           alt="Photo of unavailability">
+      <mat-card-content>
+        <p>Isbn: {{book.isbn}}<br>
+          Published Date: {{book.pdate}}<br>
+          Publisher: {{book.publisher}}</p>
+        <div *ngIf="book.availability == false">Borrowed By: <b>{{book.currentReader.name}}</b></div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-divider></mat-divider>
+<p>
+  Dvds
+</p>
+
+<mat-grid-list cols="6" rowHeight="1:2">
+  <mat-grid-tile *ngFor="let dvd of dvds">
+    <mat-card class="item-card">
+      <mat-card-header>
+        <mat-card-title>{{dvd.title}}</mat-card-title>
+        <mat-card-subtitle>Producer: {{dvd.producer}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image *ngIf="dvd.availability == true"
+           src="http://www.aavictoria.org.au/wp-content/uploads/2018/05/green-tick.jpg"
+           alt="Photo of a availability">
+      <img mat-card-image *ngIf="dvd.availability == false"
+           src="https://previews.123rf.com/images/nerthuz/nerthuz1804/nerthuz180400209/100139212-wrong-cross-symbol-isolated.jpg"
+           alt="Photo of unavailability">
+      <mat-card-content>
+        <p>
+          Producer: {{dvd.producer}}<br>
+          Published Date: {{dvd.pdate}}<br>
+        </p>
+        <div *ngIf="dvd.availability == false">Borrowed By: <b>{{dvd.currentReader.name}}</b></div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-divider></mat-divider>
+</mat-grid-list>
+<mat-divider></mat-divider>

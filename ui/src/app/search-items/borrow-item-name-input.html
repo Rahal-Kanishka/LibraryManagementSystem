@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Hellow <b> {{data.borrowerName}} </b></h1>
+<div mat-dialog-content>
+  <p>Please Enter the Borrower's Name</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.borrowerName">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.borrowerName" cdkFocusInitial>Save</button>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
+
+</div>

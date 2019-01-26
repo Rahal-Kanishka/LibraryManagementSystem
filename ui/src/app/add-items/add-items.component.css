@@ -1,0 +1,32 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 25%;
+}
+
+form.normal-form {
+  margin: 10px;
+}
+
+.controls-container {
+  width: 100%;
+  padding: 5%;
+
+}
+
+.controls-container > * {
+  width: 100%;
+}
+
+.button-row button {
+  margin: 5px;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 20px 10px 10px 20px;
+}

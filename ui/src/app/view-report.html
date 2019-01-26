@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Report</h1>
+<div mat-dialog-content>
+  <h3>System Report of Borrowed Items</h3>
+
+  <div><h2>Book Report</h2>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Authors</th>
+        <th>Total Pages</th>
+        <th>Borrowed Status</th>
+      </tr>
+      <tr *ngFor="let book of data.books">
+        <td>{{book.title}}</td>
+        <td>{{book.isbn}}</td>
+        <td>{{book.authors}}</td>
+        <td>{{book.totalPages}}</td>
+        <td>{{book.availability}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div><h2>DVD Report</h2>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Producer</th>
+        <th>Published Date</th>
+        <th>Languages</th>
+        <th>Borrowed Status</th>
+      </tr>
+      <tr *ngFor="let dvd of data.dvds">
+        <td>{{dvd.title}}</td>
+        <td>{{dvd.producer}}</td>
+        <td>{{dvd.pdate}}</td>
+        <td>{{dvd.availableLanguages}}</td>
+        <td>{{dvd.availability}}</td>
+      </tr>
+    </table>
+  </div>
+
+
+</div>
+<div mat-dialog-actions>
+
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
+
+</div>

@@ -1,0 +1,85 @@
+<mat-card class="center">
+  <h2>Search item By Title And Type</h2>
+  <form [formGroup]="appService.searchFormGroup" class="normal-form" (ngSubmit)="onSubmit()">
+
+    <mat-grid-list cols="2" rawHeight="200px" rawWidth="200px">
+      <mat-grid-tile>
+
+        <input type="hidden" formControlName="$key">
+        <mat-form-field>
+          <input formControlName="title" [(ngModel)]="itemTitle" matInput placeholder="Search by Item Title">
+          <mat-error>Item Title is mandatory</mat-error>
+        </mat-form-field>
+
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-select formControlName="type" [(ngModel)]="selectedType" placeholder="Item Type" type="search">
+            <mat-option *ngFor="let item of selections" [value]="item.value">
+              {{item.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+</mat-card>
+
+
+<div *ngIf="selectedType == 1">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>ISBN</th>
+      <th>Authors</th>
+      <th>Total Pages</th>
+      <th>Current Reader</th>
+    </tr>
+    <tr *ngFor="let book of books">
+      <td>{{book.title}}</td>
+      <td>{{book.isbn}}</td>
+      <td>{{book.authors}}</td>
+      <td>{{book.totalPages}}</td>
+      <td>
+        <div *ngIf="book.availability == false">{{book.currentReader.name}}
+          <button mat-raised-button color="basic" (click)="returnItem(book.type,book.title)">Return</button>
+        </div>
+        <div *ngIf="book.availability  == true">
+          <button mat-raised-button color="basic" (click)="openDialog(book.type,book.title)">Borrow</button>
+        </div>
+        <button mat-raised-button color="warn" (click)="returnItem(book.type,book.title)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<div *ngIf="selectedType == 2">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Producer</th>
+      <th>Published Date</th>
+      <th>Languages</th>
+      <th>Current Reader</th>
+    </tr>
+    <tr *ngFor="let dvd of dvds">
+      <td>{{dvd.title}}</td>
+      <td>{{dvd.producer}}</td>
+      <td>{{dvd.pdate}}</td>
+      <td>{{dvd.availableLanguages}}</td>
+      <td>
+        <div *ngIf="dvd.availability == false">{{dvd.currentReader.name}}
+          <button mat-raised-button color="Basic" (click)="returnItem(dvd.type,dvd.title)">Return</button>
+        </div>
+        <div *ngIf="dvd.availability  == true">
+          <button mat-raised-button color="Basic" (click)="openDialog(dvd.type,dvd.title)">Borrow</button>
+        </div>
+        <p>
+          <button mat-raised-button color="warn" (click)="deleteItem(dvd.type,dvd.title)">Delete</button>
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>
+

@@ -1,0 +1,27 @@
+/*
+.item-card {
+  width: 600px;
+  height: 200px;
+}
+*/
+.item-card {
+  /* max-width: 300px;
+   margin-left: 50px;
+   float: none;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;*/
+  margin-left: 50px;
+}
+
+/*.mat-card-content p {
+  float: left;
+}*/
+
+/*.mat-grid-list {
+  width: 100%;
+}*/
+
+/*mat-card {*/
+/*width: calc(100% - 70px);*/
+/*height: calc(100% - 70px);*/
+/*}*/

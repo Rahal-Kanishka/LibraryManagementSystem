@@ -1,0 +1,31 @@
+.post-request-test {
+  padding-top: 1rem;
+}
+
+
+.title-center {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.report-spacer {
+  flex: 1 1 auto;
+  width: 100px;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

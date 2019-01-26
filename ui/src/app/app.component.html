@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row >
+    <div><span class="title-center"><h1>Welcome to {{title}}!</h1></span></div>
+    <div layout="row" layout-align="end center">
+      <button class="report-spacer" mat-raised-button color="basic" (click)="getReport()">Report</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div style="text-align:center;">
+
+
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+       *ngFor="let link of navLinks"
+       [routerLink]="link.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
+
+
+  <router-outlet></router-outlet>
+
+
+</div>
+
+
